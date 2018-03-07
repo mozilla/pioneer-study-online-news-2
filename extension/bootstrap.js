@@ -36,6 +36,9 @@ XPCOMUtils.defineLazyModuleGetter(
 XPCOMUtils.defineLazyModuleGetter(
   this, "Panels", "resource://pioneer-study-online-news-2/lib/Panels.jsm"
 );
+XPCOMUtils.defineLazyModuleGetter(
+  this, "SurveyWatcher", "resource://pioneer-study-online-news-2/lib/SurveyWatcher.jsm"
+);
 
 const REASONS = {
   APP_STARTUP:      1, // The application is starting up.
@@ -107,6 +110,7 @@ this.Bootstrap = {
     ActiveURIService.startup();
     DwellTime.startup();
     Phases.startup();
+    SurveyWatcher.startup();
   },
 
   shutdown(data, reason) {
@@ -140,6 +144,7 @@ this.Bootstrap = {
     Cu.unload("resource://pioneer-study-online-news-2/lib/Hosts.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/BiasDoorhanger.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/SurveyDoorhanger.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/SurveyWatcher.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/PrefUtils.jsm");
   },
 
