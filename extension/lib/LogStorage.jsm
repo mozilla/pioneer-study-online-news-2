@@ -8,16 +8,16 @@ Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Config", "resource://pioneer-study-online-news/Config.jsm"
+  this, "Config", "resource://pioneer-study-online-news-2/Config.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "NewsIndexedDB", "resource://pioneer-study-online-news/lib/NewsIndexedDB.jsm"
+  this, "NewsIndexedDB", "resource://pioneer-study-online-news-2/lib/NewsIndexedDB.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Pioneer", "resource://pioneer-study-online-news/lib/Pioneer.jsm"
+  this, "Pioneer", "resource://pioneer-study-online-news-2/lib/Pioneer.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "PrefUtils", "resource://pioneer-study-online-news/lib/PrefUtils.jsm"
+  this, "PrefUtils", "resource://pioneer-study-online-news-2/lib/PrefUtils.jsm"
 );
 
 this.EXPORTED_SYMBOLS = ["LogStorage"];

@@ -7,7 +7,7 @@ Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Config", "resource://pioneer-study-online-news/Config.jsm"
+  this, "Config", "resource://pioneer-study-online-news-2/Config.jsm"
 );
 
 this.EXPORTED_SYMBOLS = ["State"];

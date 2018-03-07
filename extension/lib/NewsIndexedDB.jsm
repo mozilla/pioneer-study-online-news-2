@@ -10,7 +10,7 @@ XPCOMUtils.defineLazyModuleGetter(
   this, "IndexedDB", "resource://gre/modules/IndexedDB.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Pioneer", "resource://pioneer-study-online-news/lib/Pioneer.jsm"
+  this, "Pioneer", "resource://pioneer-study-online-news-2/lib/Pioneer.jsm"
 );
 
 this.EXPORTED_SYMBOLS = ["NewsIndexedDB"];

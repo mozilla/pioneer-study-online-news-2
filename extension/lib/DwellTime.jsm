@@ -8,13 +8,13 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource://gre/modules/Timer.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Config", "resource://pioneer-study-online-news/Config.jsm"
+  this, "Config", "resource://pioneer-study-online-news-2/Config.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "LogStorage", "resource://pioneer-study-online-news/lib/LogStorage.jsm"
+  this, "LogStorage", "resource://pioneer-study-online-news-2/lib/LogStorage.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "ActiveURIService", "resource://pioneer-study-online-news/lib/ActiveURIService.jsm",
+  this, "ActiveURIService", "resource://pioneer-study-online-news-2/lib/ActiveURIService.jsm",
 );
 XPCOMUtils.defineLazyServiceGetter(
   this, "IdleService", "@mozilla.org/widget/idleservice;1", "nsIIdleService",

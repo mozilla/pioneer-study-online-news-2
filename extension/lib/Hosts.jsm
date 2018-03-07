@@ -5,7 +5,7 @@ this.EXPORTED_SYMBOLS = ["Hosts"];
 
 const Hosts = {
   async startup() {
-    const domainResponse = await fetch("resource://pioneer-study-online-news/domains.json");
+    const domainResponse = await fetch("resource://pioneer-study-online-news-2/domains.json");
     const domains = await domainResponse.json();
 
     this.trackedHosts = {};

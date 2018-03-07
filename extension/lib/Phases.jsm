@@ -19,16 +19,16 @@ XPCOMUtils.defineLazyServiceGetter(
 );
 
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Pioneer", "resource://pioneer-study-online-news/lib/Pioneer.jsm"
+  this, "Pioneer", "resource://pioneer-study-online-news-2/lib/Pioneer.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Config", "resource://pioneer-study-online-news/Config.jsm"
+  this, "Config", "resource://pioneer-study-online-news-2/Config.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "State", "resource://pioneer-study-online-news/lib/State.jsm"
+  this, "State", "resource://pioneer-study-online-news-2/lib/State.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "SurveyDoorhanger", "resource://pioneer-study-online-news/lib/SurveyDoorhanger.jsm"
+  this, "SurveyDoorhanger", "resource://pioneer-study-online-news-2/lib/SurveyDoorhanger.jsm"
 );
 
 this.EXPORTED_SYMBOLS = ["Phases"];

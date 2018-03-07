@@ -7,7 +7,7 @@ Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
-  this, "BiasDoorhanger", "resource://pioneer-study-online-news/lib/BiasDoorhanger.jsm"
+  this, "BiasDoorhanger", "resource://pioneer-study-online-news-2/lib/BiasDoorhanger.jsm"
 );
 
 this.EXPORTED_SYMBOLS = ["ActiveURIService"];

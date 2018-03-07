@@ -7,7 +7,7 @@ const { utils: Cu } = Components;
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
-  this, "NewsIndexedDB", "resource://pioneer-study-online-news/lib/NewsIndexedDB.jsm"
+  this, "NewsIndexedDB", "resource://pioneer-study-online-news-2/lib/NewsIndexedDB.jsm"
 );
 
 this.EXPORTED_SYMBOLS = ["DoorhangerStorage"];

@@ -3,27 +3,27 @@ Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Config", "resource://pioneer-study-online-news/Config.jsm",
+  this, "Config", "resource://pioneer-study-online-news-2/Config.jsm",
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Panels", "resource://pioneer-study-online-news/lib/Panels.jsm",
+  this, "Panels", "resource://pioneer-study-online-news-2/lib/Panels.jsm",
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Hosts", "resource://pioneer-study-online-news/lib/Hosts.jsm",
+  this, "Hosts", "resource://pioneer-study-online-news-2/lib/Hosts.jsm",
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Phases", "resource://pioneer-study-online-news/lib/Phases.jsm",
+  this, "Phases", "resource://pioneer-study-online-news-2/lib/Phases.jsm",
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Pioneer", "resource://pioneer-study-online-news/lib/Pioneer.jsm"
+  this, "Pioneer", "resource://pioneer-study-online-news-2/lib/Pioneer.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "DoorhangerStorage", "resource://pioneer-study-online-news/lib/DoorhangerStorage.jsm"
+  this, "DoorhangerStorage", "resource://pioneer-study-online-news-2/lib/DoorhangerStorage.jsm"
 );
 
-const DOORHANGER_URL = "resource://pioneer-study-online-news/content/doorhanger/doorhanger-bias.html";
-const FRAME_SCRIPT_URL = "resource://pioneer-study-online-news/content/doorhanger/doorhanger-bias.js";
-const LEARN_MORE_URL = "chrome://pioneer-study-online-news/content/learn-more.html";
+const DOORHANGER_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-bias.html";
+const FRAME_SCRIPT_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-bias.js";
+const LEARN_MORE_URL = "chrome://pioneer-study-online-news-2/content/learn-more.html";
 const STUDY_BRANCH_PREF = "extensions.pioneer-online-news.studyBranch";
 
 const MESSAGES = {

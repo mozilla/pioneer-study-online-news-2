@@ -7,34 +7,34 @@ Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Config", "resource://pioneer-study-online-news/Config.jsm"
+  this, "Config", "resource://pioneer-study-online-news-2/Config.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "ActiveURIService", "resource://pioneer-study-online-news/lib/ActiveURIService.jsm",
+  this, "ActiveURIService", "resource://pioneer-study-online-news-2/lib/ActiveURIService.jsm",
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "DwellTime", "resource://pioneer-study-online-news/lib/DwellTime.jsm",
+  this, "DwellTime", "resource://pioneer-study-online-news-2/lib/DwellTime.jsm",
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "State", "resource://pioneer-study-online-news/lib/State.jsm"
+  this, "State", "resource://pioneer-study-online-news-2/lib/State.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Phases", "resource://pioneer-study-online-news/lib/Phases.jsm"
+  this, "Phases", "resource://pioneer-study-online-news-2/lib/Phases.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Pioneer", "resource://pioneer-study-online-news/lib/Pioneer.jsm"
+  this, "Pioneer", "resource://pioneer-study-online-news-2/lib/Pioneer.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Hosts", "resource://pioneer-study-online-news/lib/Hosts.jsm"
+  this, "Hosts", "resource://pioneer-study-online-news-2/lib/Hosts.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "NewsIndexedDB", "resource://pioneer-study-online-news/lib/NewsIndexedDB.jsm"
+  this, "NewsIndexedDB", "resource://pioneer-study-online-news-2/lib/NewsIndexedDB.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "PrefUtils", "resource://pioneer-study-online-news/lib/PrefUtils.jsm"
+  this, "PrefUtils", "resource://pioneer-study-online-news-2/lib/PrefUtils.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Panels", "resource://pioneer-study-online-news/lib/Panels.jsm"
+  this, "Panels", "resource://pioneer-study-online-news-2/lib/Panels.jsm"
 );
 
 const REASONS = {
@@ -127,20 +127,20 @@ this.Bootstrap = {
     NewsIndexedDB.shutdown();
     Panels.shutdown();
 
-    Cu.unload("resource://pioneer-study-online-news/Config.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/Pioneer.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/ActiveURIService.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/DwellTime.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/NewsIndexedDB.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/DoorhangerStorage.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/LogStorage.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/Phases.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/State.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/Panels.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/Hosts.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/BiasDoorhanger.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/SurveyDoorhanger.jsm");
-    Cu.unload("resource://pioneer-study-online-news/lib/PrefUtils.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/Config.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/Pioneer.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/ActiveURIService.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/DwellTime.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/NewsIndexedDB.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/DoorhangerStorage.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/LogStorage.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/Phases.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/State.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/Panels.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/Hosts.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/BiasDoorhanger.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/SurveyDoorhanger.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/PrefUtils.jsm");
   },
 
   uninstall() {},

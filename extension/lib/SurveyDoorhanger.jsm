@@ -2,16 +2,16 @@ const { utils: Cu } = Components;
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Panels", "resource://pioneer-study-online-news/lib/Panels.jsm",
+  this, "Panels", "resource://pioneer-study-online-news-2/lib/Panels.jsm",
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "Phases", "resource://pioneer-study-online-news/lib/Phases.jsm",
+  this, "Phases", "resource://pioneer-study-online-news-2/lib/Phases.jsm",
 );
 
 this.EXPORTED_SYMBOLS = ["SurveyDoorhanger"];
 
-const DOORHANGER_URL = "resource://pioneer-study-online-news/content/doorhanger/doorhanger-survey.html";
-const FRAME_SCRIPT_URL = "resource://pioneer-study-online-news/content/doorhanger/doorhanger-survey.js";
+const DOORHANGER_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-survey.html";
+const FRAME_SCRIPT_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-survey.js";
 const PANEL_ID = "online-news-survey-panel";
 
 const MESSAGES = {
