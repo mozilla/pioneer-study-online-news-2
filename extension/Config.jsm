@@ -26,14 +26,15 @@ const Config = {
   studyName: "online-news",
   branches: [
     { name: "control", weight: 1 },
-    { name: "treatment", weight: 1, showDoorhanger: true },
+    { name: "treatment-bias", weight: 1, showDoorhanger: "bias" },
+    { name: "treatment-ranking", weight: 1, showDoorhanger: "ranking" },
   ],
   telemetryEnv: Services.prefs.getCharPref(TELEMETRY_ENV_PREF, "prod"),
 
-  updateTimerInterval: Services.prefs.getIntPref(UPDATE_TIMER_PREF, 1 * DAY),
+  updateTimerInterval: Services.prefs.getIntPref(UPDATE_TIMER_PREF, 6 * HOUR),
   showDoorhangerInterval: Services.prefs.getIntPref(DOORHANGER_INTERVAL_PREF, 1 * DAY),
-  logSubmissionInterval: Services.prefs.getIntPref(LOG_INTERVAL_PREF, 1 * DAY),
-  logUploadAttemptInterval: Services.prefs.getIntPref(LOG_UPLOAD_ATTEMPT_PREF, 3 * HOUR),
+  logSubmissionInterval: Services.prefs.getIntPref(LOG_INTERVAL_PREF, 3 * HOUR),
+  logUploadAttemptInterval: Services.prefs.getIntPref(LOG_UPLOAD_ATTEMPT_PREF, 30 * MINUTE),
 
   // Note: This is set in seconds not milliseconds
   idleDelaySeconds: Services.prefs.getIntPref(IDLE_DELAY_PREF, 5),
@@ -68,22 +69,20 @@ const Config = {
 
   phases: {
     preTreatment: {
-      duration: Services.prefs.getIntPref(PRETREATMENT_DURATION_PREF, 3 * WEEK),
+      duration: Services.prefs.getIntPref(PRETREATMENT_DURATION_PREF, 1 * WEEK),
       next: "treatment",
       surveyURL: "https://qsurvey.mozilla.com/s3/Pioneer-Online-News-Wave-1",
     },
 
     treatment: {
-      duration: Services.prefs.getIntPref(TREATMENT_DURATION_PREF, 3 * WEEK),
+      duration: Services.prefs.getIntPref(TREATMENT_DURATION_PREF, 1 * WEEK),
       next: "postTreatment",
-      surveyURL: "https://qsurvey.mozilla.com/s3/Pioneer-Online-News-Wave-2",
       treatment: true,
     },
 
     postTreatment: {
-      duration: Services.prefs.getIntPref(POSTTREATMENT_DURATION_PREF, 3 * WEEK),
+      duration: Services.prefs.getIntPref(POSTTREATMENT_DURATION_PREF, 1 * WEEK),
       next: "postStudy",
-      surveyURL: "https://qsurvey.mozilla.com/s3/Pioneer-Online-News-Wave-3",
     },
 
     postStudy: {
