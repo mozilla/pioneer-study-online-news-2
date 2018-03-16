@@ -1,18 +1,34 @@
 {
   "name": "pioneer-study-online-news",
-  "version": "2.0.0",
   "description": "A Pioneer study looking at online news consumption.",
-  "scripts": {
-    "build": "XPI=online-news-2@pioneer.mozilla.org.xpi bash ./bin/make-xpi.sh"
+  "version": "2.0.0",
+  "author": "Mozilla",
+  "addon": {
+    "id": "online-news@pioneer.mozilla.org",
+    "name": "Pioneer Online News Study",
+    "minVersion": "55.0",
+    "maxVersion": "*",
+    "multiprocessCompatible": true,
+    "hasEmbeddedWebExtension": false,
+    "chrome": "pioneer-study-online-news-2"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-plugin-mozilla": "^0.9.1",
+    "eslint-plugin-no-unsanitized": "^3.0.0",
+    "mustache": "^2.3.0",
+    "npm-run-all": "^4.1.2",
+    "pioneer-utils": "^1.0.9",
+    "stylelint": "^9.1.3",
+    "stylelint-config-standard": "^18.2.0"
   },
   "keywords": [],
-  "author": "Mozilla",
   "license": "MPL-2.0",
-  "devDependencies": {
-    "eslint": "^4.11.0",
-    "eslint-plugin-mozilla": "^0.4.9",
-    "eslint-plugin-no-unsanitized": "^2.0.1",
-    "mustache": "^2.3.0",
-    "pioneer-utils": "^1.0.9"
+  "private": true,
+  "scripts": {
+    "build": "XPI=online-news-2@pioneer.mozilla.org.xpi bash ./bin/make-xpi.sh",
+    "lint": "npm-run-all lint:*",
+    "lint:css": "stylelint 'extension/**/*.css'",
+    "lint:js": "eslint ."
   }
 }
