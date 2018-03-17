@@ -14,8 +14,10 @@
   },
   "devDependencies": {
     "eslint": "^4.18.2",
+    "eslint-plugin-json": "1.2.0",
     "eslint-plugin-mozilla": "^0.9.1",
     "eslint-plugin-no-unsanitized": "^3.0.0",
+    "htmllint-cli": "^0.0.6",
     "mustache": "^2.3.0",
     "npm-run-all": "^4.1.2",
     "pioneer-utils": "^1.0.9",
@@ -29,6 +31,7 @@
     "build": "XPI=online-news-2@pioneer.mozilla.org.xpi bash ./bin/make-xpi.sh",
     "lint": "npm-run-all lint:*",
     "lint:css": "stylelint 'extension/**/*.css'",
-    "lint:js": "eslint ."
+    "lint:html": "htmllint 'extension/**/*.html'",
+    "lint:js": "eslint . --ext=.js,.jsm,.json"
   }
 }
