@@ -4,16 +4,16 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 const EXPORTED_SYMBOLS = ["Config"];
 
-const TELEMETRY_ENV_PREF = "extensions.pioneer-online-news.telemetryEnv";
-const UPDATE_TIMER_PREF = "extensions.pioneer-online-news.updateTimerInterval";
-const DOORHANGER_INTERVAL_PREF = "extensions.pioneer-online-news.showDoorhangerInterval";
-const LOG_INTERVAL_PREF = "extensions.pioneer-online-news.logSubmissionInterval";
-const PRETREATMENT_DURATION_PREF = "extensions.pioneer-online-news.preTreatmentDuration";
-const TREATMENT_DURATION_PREF = "extensions.pioneer-online-news.treatmentDuration";
-const POSTTREATMENT_DURATION_PREF = "extensions.pioneer-online-news.postTreatmentDuration";
-const POSTSTUDY_DURATION_PREF = "extensions.pioneer-online-news.postStudyDuration";
-const IDLE_DELAY_PREF = "extensions.pioneer-online-news.idleDelaySeconds";
-const LOG_UPLOAD_ATTEMPT_PREF = "extensions.pioneer-online-news.logUploadAttemptInterval";
+const TELEMETRY_ENV_PREF = "extensions.pioneer-online-news-2.telemetryEnv";
+const UPDATE_TIMER_PREF = "extensions.pioneer-online-news-2.updateTimerInterval";
+const DOORHANGER_INTERVAL_PREF = "extensions.pioneer-online-news-2.showDoorhangerInterval";
+const LOG_INTERVAL_PREF = "extensions.pioneer-online-news-2.logSubmissionInterval";
+const PRETREATMENT_DURATION_PREF = "extensions.pioneer-online-news-2.preTreatmentDuration";
+const TREATMENT_DURATION_PREF = "extensions.pioneer-online-news-2.treatmentDuration";
+const POSTTREATMENT_DURATION_PREF = "extensions.pioneer-online-news-2.postTreatmentDuration";
+const POSTSTUDY_DURATION_PREF = "extensions.pioneer-online-news-2.postStudyDuration";
+const IDLE_DELAY_PREF = "extensions.pioneer-online-news-2.idleDelaySeconds";
+const LOG_UPLOAD_ATTEMPT_PREF = "extensions.pioneer-online-news-2.logUploadAttemptInterval";
 
 const SECOND = 1000;
 const MINUTE = 60 * SECOND;
@@ -22,7 +22,7 @@ const DAY = 24 * HOUR;
 const WEEK = 7 * DAY;
 
 const Config = {
-  addonId: "pioneer-study-online-news@mozilla.org",
+  addonId: "online-news@pioneer.mozilla.org",
   studyName: "online-news",
   branches: [
     { name: "control", weight: 1 },

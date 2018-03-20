@@ -24,7 +24,7 @@ XPCOMUtils.defineLazyModuleGetter(
 const DOORHANGER_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-bias.html";
 const FRAME_SCRIPT_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-bias.js";
 const LEARN_MORE_URL = "chrome://pioneer-study-online-news-2/content/learn-more.html";
-const STUDY_BRANCH_PREF = "extensions.pioneer-online-news.studyBranch";
+const STUDY_BRANCH_PREF = "extensions.pioneer-online-news-2.studyBranch";
 
 const MESSAGES = {
   AGREE: "PioneerOnlineNews::agree",

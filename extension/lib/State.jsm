@@ -12,7 +12,7 @@ XPCOMUtils.defineLazyModuleGetter(
 
 this.EXPORTED_SYMBOLS = ["State"];
 
-const STATE_PREF = "extensions.pioneer-online-news.state";
+const STATE_PREF = "extensions.pioneer-online-news-2.state";
 
 XPCOMUtils.defineLazyGetter(this, "DEFAULT_STATE", () => {
   return {

@@ -39,6 +39,9 @@ XPCOMUtils.defineLazyModuleGetter(
 XPCOMUtils.defineLazyModuleGetter(
   this, "SurveyWatcher", "resource://pioneer-study-online-news-2/lib/SurveyWatcher.jsm"
 );
+XPCOMUtils.defineLazyModuleGetter(
+  this, "LogHandler", "resource://pioneer-study-online-news-2/lib/LogHandler.jsm"
+);
 
 const REASONS = {
   APP_STARTUP:      1, // The application is starting up.
@@ -51,7 +54,7 @@ const REASONS = {
   ADDON_DOWNGRADE:  8, // The add-on is being downgraded.
 };
 const UI_AVAILABLE_NOTIFICATION = "sessionstore-windows-restored";
-const EXPIRATION_DATE_PREF = "extensions.pioneer-online-news.expirationDate";
+const EXPIRATION_DATE_PREF = "extensions.pioneer-online-news-2.expirationDate";
 
 this.Bootstrap = {
   install() {},
@@ -111,6 +114,7 @@ this.Bootstrap = {
     DwellTime.startup();
     Phases.startup();
     SurveyWatcher.startup();
+    LogHandler.startup();
   },
 
   shutdown(data, reason) {
@@ -138,6 +142,7 @@ this.Bootstrap = {
     Cu.unload("resource://pioneer-study-online-news-2/lib/NewsIndexedDB.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/DoorhangerStorage.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/LogStorage.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/LogHandler.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/Phases.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/State.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/Panels.jsm");

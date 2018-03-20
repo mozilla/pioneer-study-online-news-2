@@ -33,8 +33,6 @@ this.DwellTime = {
     IdleService.addIdleObserver(this, Config.idleDelaySeconds);
     ActiveURIService.addObserver(this);
     this.onFocusURI(ActiveURIService.focusedURI);
-    LogStorage.uploadPings();
-    setInterval(LogStorage.uploadPings.bind(LogStorage), Config.logUploadAttemptInterval);
   },
 
   shutdown() {
