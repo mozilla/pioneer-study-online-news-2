@@ -213,9 +213,10 @@ Phases.gotoNextPhase();
 This will manually advance you to the second phase of the study where you can
 observe the doorhanger behaviour.
 
-There are two branches to this phase. One is the `control` branch where the
-doorhanger is not shown to the user. And the other is the `treatment` branch
-where the doorhanger is shown to the user.
+There are three branches to this phase: 
+- the `control` branch where the doorhanger is not shown to the user. 
+- the `bias-treatment` branch where the bias doorhanger is shown to the user.
+- the `ranking-treatment` branch where the Alex ranking doorhanger is shown.
 
 You can change this preference at any time to switch the branch that you are 
 testing. No restart should be necessary for the change to take effect.
