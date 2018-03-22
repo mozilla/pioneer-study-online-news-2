@@ -71,7 +71,7 @@ const Config = {
     preTreatment: {
       duration: Services.prefs.getIntPref(PRETREATMENT_DURATION_PREF, 1 * WEEK),
       next: "treatment",
-      surveyURL: "https://qsurvey.mozilla.com/s3/Pioneer-Online-News-Wave-1",
+      surveyURL: "https://qsurvey.mozilla.com/s3/pioneer-1",
     },
 
     treatment: {
@@ -89,7 +89,7 @@ const Config = {
       duration: Services.prefs.getIntPref(POSTSTUDY_DURATION_PREF, 1 * WEEK),
       surveyOnly: true,
       next: "studyEnd",
-      surveyURL: "https://qsurvey.mozilla.com/s3/Pioneer-Online-News-Wave-4",
+      surveyURL: "https://qsurvey.mozilla.com/s3/pioneer-2",
     },
 
     studyEnd: {

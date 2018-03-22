@@ -110,7 +110,7 @@ this.Bootstrap = {
     await NewsIndexedDB.startup();
     Panels.startup();
     Hosts.startup();
-    ActiveURIService.startup();
+    await ActiveURIService.startup();
     DwellTime.startup();
     Phases.startup();
     SurveyWatcher.startup();
@@ -148,6 +148,7 @@ this.Bootstrap = {
     Cu.unload("resource://pioneer-study-online-news-2/lib/Panels.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/Hosts.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/BiasDoorhanger.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/RankingDoorhanger.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/SurveyDoorhanger.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/SurveyWatcher.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/PrefUtils.jsm");

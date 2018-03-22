@@ -23,6 +23,7 @@ XPCOMUtils.defineLazyServiceGetter(
 this.EXPORTED_SYMBOLS = ["DwellTime"];
 
 const ACCEPTED_SCHEMES = new Set(["http", "https"]);
+const STUDY_BRANCH_PREF = "extensions.pioneer-online-news-2.studyBranch";
 
 
 this.DwellTime = {
@@ -52,8 +53,16 @@ this.DwellTime = {
       return;
     }
 
-    let unixTs = Math.round(now / 1000);
-    let obj = {url: this.focusedUrl, details: idle_tag, timestamp: unixTs};
+    const unixTs = Math.round(now / 1000);
+    const branchName = Services.prefs.getCharPref(STUDY_BRANCH_PREF, "");
+
+    let obj = {
+      url: this.focusedUrl,
+      details: idle_tag,
+      timestamp: unixTs,
+      branch: branchName,
+    };
+
     LogStorage.put(obj);
   },
 

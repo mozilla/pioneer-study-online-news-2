@@ -10,6 +10,12 @@ XPCOMUtils.defineLazyModuleGetter(
   this, "BiasDoorhanger", "resource://pioneer-study-online-news-2/lib/BiasDoorhanger.jsm"
 );
 
+XPCOMUtils.defineLazyModuleGetter(
+  this, "RankingDoorhanger", "resource://pioneer-study-online-news-2/lib/RankingDoorhanger.jsm"
+);
+
+const STUDY_BRANCH_PREF = "extensions.pioneer-online-news-2.studyBranch";
+
 this.EXPORTED_SYMBOLS = ["ActiveURIService"];
 
 /**
@@ -36,7 +42,7 @@ this.ActiveURIService = {
   // Objects listening to changes in the active URI
   observers: new Set(),
 
-  startup() {
+  async startup() {
     Services.obs.addObserver(this, "xul-window-registered");
     Services.obs.addObserver(this, "xul-window-destroyed");
 
@@ -44,7 +50,7 @@ this.ActiveURIService = {
     const windowList = Services.wm.getEnumerator(null);
     while (windowList.hasMoreElements()) {
       const window = windowList.getNext();
-      this.setupWindow(window);
+      await this.setupWindow(window);
     }
 
     // Set the focused URI to the currently-focused URI if possible
@@ -96,12 +102,28 @@ this.ActiveURIService = {
     }
   },
 
-  setupWindow(domWindow) {
+  async setupWindow(domWindow) {
     if (!this.isWindowPrivate(domWindow)) {
       this.trackWindow(domWindow);
 
-      const doorhanger = new BiasDoorhanger(domWindow);
-      this.addObserver(doorhanger);
+      const branchName = Services.prefs.getCharPref(STUDY_BRANCH_PREF, "");
+      let branch = Config.branches.find(b => b.name === branchName);
+      if (!branch) {
+        branch = await Pioneer.utils.chooseBranch();
+        Services.prefs.setCharPref(STUDY_BRANCH_PREF, branch.name);
+      }
+
+      let doorhanger;
+
+      if (branch.showDoorhanger === "bias") {
+        doorhanger = new BiasDoorhanger(domWindow);
+      } else {
+        doorhanger = new RankingDoorhanger(domWindow);
+      }
+
+      if (doorhanger) {
+        this.addObserver(doorhanger);
+      }
     }
   },
 

@@ -5,12 +5,20 @@ this.EXPORTED_SYMBOLS = ["Hosts"];
 
 const Hosts = {
   async startup() {
-    const domainResponse = await fetch("resource://pioneer-study-online-news-2/domains.json");
-    const domains = await domainResponse.json();
+    const biasDomains = await fetch("resource://pioneer-study-online-news-2/bias-domains.json");
+    let domains = await biasDomains.json();
 
-    this.trackedHosts = {};
+    this.trackedBiasHosts = {};
     domains.forEach(d => {
-      this.trackedHosts[d.domain] = d.avgAlign;
+      this.trackedBiasHosts[d.domain] = d.avgAlign;
+    });
+
+    const mozDomains = await fetch("resource://pioneer-study-online-news-2/ranking-domains.json");
+    domains = await mozDomains.json();
+
+    this.trackedMozHosts = {};
+    domains.forEach(d => {
+      this.trackedMozHosts[d.domain] = d.mozRank;
     });
   },
 
@@ -18,13 +26,23 @@ const Hosts = {
     return uri ? uri.host : null;
   },
 
-  isTrackedURI(uri) {
+  isBiasTrackedURI(uri) {
     const hostname = this.getHostnameFromURI(uri);
-    return Object.keys(this.trackedHosts).includes(hostname);
+    return Object.keys(this.trackedBiasHosts).includes(hostname);
   },
 
-  getRatingForURI(uri) {
+  getBiasRatingForURI(uri) {
     const hostname = this.getHostnameFromURI(uri);
-    return this.trackedHosts[hostname];
+    return this.trackedBiasHosts[hostname];
+  },
+
+  isMozTrackedURI(uri) {
+    const hostname = this.getHostnameFromURI(uri);
+    return Object.keys(this.trackedMozHosts).includes(hostname);
+  },
+
+  getMozRatingForURI(uri) {
+    const hostname = this.getHostnameFromURI(uri);
+    return this.trackedMozHosts[hostname];
   }
 };

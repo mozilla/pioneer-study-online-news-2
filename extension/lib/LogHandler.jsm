@@ -49,7 +49,7 @@ this.LogHandler = {
 
       if (entriesPingSize < UPLOAD_LIMIT) {
         // If the ping is small enough, just submit it directly
-        await Pioneer.utils.submitEncryptedPing("online-news-log", 1, payload);
+        await Pioneer.utils.submitEncryptedPing("online-news-log", 2, payload);
         PrefUtils.setLongPref(UPLOAD_DATE_PREF, Date.now());
       } else {
         // Otherwise, break it into batches below the minimum size
@@ -77,7 +77,7 @@ this.LogHandler = {
             continue;
           }
 
-          await Pioneer.utils.submitEncryptedPing("online-news-log", 1, payload);
+          await Pioneer.utils.submitEncryptedPing("online-news-log", 2, payload);
         }
 
         PrefUtils.setLongPref(UPLOAD_DATE_PREF, Date.now());

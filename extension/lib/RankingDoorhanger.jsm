@@ -21,9 +21,9 @@ XPCOMUtils.defineLazyModuleGetter(
   this, "DoorhangerStorage", "resource://pioneer-study-online-news-2/lib/DoorhangerStorage.jsm"
 );
 
-const DOORHANGER_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-bias.html";
-const FRAME_SCRIPT_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-bias.js";
-const LEARN_MORE_URL = "chrome://pioneer-study-online-news-2/content/learn-more.html";
+const DOORHANGER_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-ranking.html";
+const FRAME_SCRIPT_URL = "resource://pioneer-study-online-news-2/content/doorhanger/doorhanger-ranking.js";
+const LEARN_MORE_URL = "https://moz.com/learn/seo/mozrank";
 const STUDY_BRANCH_PREF = "extensions.pioneer-online-news-2.studyBranch";
 
 const MESSAGES = {
@@ -32,10 +32,10 @@ const MESSAGES = {
 };
 
 
-class BiasDoorhanger {
+class RankingDoorhanger {
   constructor(browserWindow) {
     this.browserWindow = browserWindow;
-    this.panel = Panels.create(browserWindow, "online-news-bias-panel", DOORHANGER_URL);
+    this.panel = Panels.create(browserWindow, "online-news-ranking-panel", DOORHANGER_URL);
     this.panelBrowser = Panels.getEmbeddedBrowser(this.panel);
 
     const mm = this.panelBrowser.messageManager;
@@ -58,7 +58,7 @@ class BiasDoorhanger {
       anchor = urlBar || burgerButton;
     }
     this.panelBrowser.messageManager.sendAsyncMessage("PioneerOnlineNews::update", {
-      rating: Hosts.getBiasRatingForURI(this.focusedURI)
+      rating: Hosts.getMozRatingForURI(this.focusedURI)
     });
     this.panel.openPopup(anchor, "bottomleft topleft", 0, 0, false, false);
   }
@@ -120,7 +120,7 @@ class BiasDoorhanger {
     if (data.window === this.browserWindow && data.uri) {
       this.focusedURI = data.uri;
 
-      const isTracked = Hosts.isBiasTrackedURI(data.uri);
+      const isTracked = Hosts.isMozTrackedURI(data.uri);
       const hostname = Hosts.getHostnameFromURI(data.uri);
       const isTreatmentPhase = Phases.getCurrentPhase().treatment;
 
@@ -136,7 +136,7 @@ class BiasDoorhanger {
         branch = await Pioneer.utils.chooseBranch();
         Services.prefs.setCharPref(STUDY_BRANCH_PREF, branch.name);
       }
-      const inTreatmentBranch = branch.showDoorhanger === "bias";
+      const inTreatmentBranch = branch.showDoorhanger === "ranking";
 
       if (hostname && isTreatmentPhase && isTracked && shouldShow && inTreatmentBranch) {
         DoorhangerStorage.setStats(hostname);
@@ -156,4 +156,4 @@ class BiasDoorhanger {
   }
 }
 
-this.EXPORTED_SYMBOLS = ["BiasDoorhanger"];
+this.EXPORTED_SYMBOLS = ["RankingDoorhanger"];
