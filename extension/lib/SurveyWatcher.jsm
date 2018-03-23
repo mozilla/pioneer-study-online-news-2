@@ -10,9 +10,6 @@ XPCOMUtils.defineLazyModuleGetter(
 XPCOMUtils.defineLazyModuleGetter(
   this, "State", "resource://pioneer-study-online-news-2/lib/State.jsm"
 );
-XPCOMUtils.defineLazyModuleGetter(
-  this, "StudyAddonManager", "resource://pioneer-study-online-news-2/lib/StudyAddonManager.jsm"
-);
 
 this.EXPORTED_SYMBOLS = ["SurveyWatcher"];
 
@@ -29,8 +26,7 @@ this.SurveyWatcher = {
   },
 
   async onFocusURI(data) {
-    const isStudyInstalled = await StudyAddonManager.isInstalled();
-    if (isStudyInstalled && data.uri && this.uriMatchesSurveyURL(data.uri)) {
+    if(data.uri && this.uriMatchesSurveyURL(data.uri)) {
       this.endSurvey();
     }
   },

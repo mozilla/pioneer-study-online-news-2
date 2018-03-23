@@ -7,9 +7,14 @@ Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
+  this, "Config", "resource://pioneer-study-online-news-2/Config.jsm"
+);
+XPCOMUtils.defineLazyModuleGetter(
+  this, "Pioneer", "resource://pioneer-study-online-news-2/lib/Pioneer.jsm"
+);
+XPCOMUtils.defineLazyModuleGetter(
   this, "BiasDoorhanger", "resource://pioneer-study-online-news-2/lib/BiasDoorhanger.jsm"
 );
-
 XPCOMUtils.defineLazyModuleGetter(
   this, "RankingDoorhanger", "resource://pioneer-study-online-news-2/lib/RankingDoorhanger.jsm"
 );
@@ -113,15 +118,15 @@ this.ActiveURIService = {
         Services.prefs.setCharPref(STUDY_BRANCH_PREF, branch.name);
       }
 
-      let doorhanger;
+      if (branch.showDoorhanger) {
+        let doorhanger;
 
-      if (branch.showDoorhanger === "bias") {
-        doorhanger = new BiasDoorhanger(domWindow);
-      } else {
-        doorhanger = new RankingDoorhanger(domWindow);
-      }
+        if (branch.showDoorhanger === "bias") {
+          doorhanger = new BiasDoorhanger(domWindow);
+        } else {
+          doorhanger = new RankingDoorhanger(domWindow);
+        }
 
-      if (doorhanger) {
         this.addObserver(doorhanger);
       }
     }
