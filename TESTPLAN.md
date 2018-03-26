@@ -50,17 +50,16 @@ set this to `stage` to ensure that the correct encryption key is used.
 
 #### `extensions.pioneer-online-news-2.updateTimerInterval`
 
-**Default:** `21600000`
+**Default:** `21600000` (6 hours)
 
-This sets the frequency in milliseconds that the state should be updated. It 
-defaults to six hours.
+This sets the frequency in milliseconds that the state should be updated.
 
 #### `extensions.pioneer-online-news-2.showDoorhangerInterval`
 
-**Default:** `86400000`
+**Default:** `86400000` (1 day)
 
 This sets the minimum time in milliseconds before the each doorhanger should be 
-reshown to a user. It defaults to one day.
+reshown to a user.
 
 #### `extensions.pioneer-online-news-2.logSubmissionInterval`
 
@@ -100,9 +99,9 @@ survey doorhanger. After this duration is over the add-on will be uninstalled.
 
 This is set during the second phase of the study.
 
-The `bias treatment` branch is where the bias rating doorhanger is shown.
+The `bias-treatment` branch is where the bias rating doorhanger is shown.
 
-The `ranking treatment` branch is where the Alexa ranking doorhanger is shown.
+The `ranking-treatment` branch is where the Alexa ranking doorhanger is shown.
 
 The `control` branch is where no doorhanger is shown.
 
@@ -111,9 +110,9 @@ The `control` branch is where no doorhanger is shown.
 **Default:** `900000` (15 minutes)
 
 This sets the frequency in milliseconds at which the add-on attempts to upload the log. If the
-time specified in `extensions.pioneer-online-news-2.logSubmissionInterval` has 
+time specified in [`extensions.pioneer-online-news-2.logSubmissionInterval`](#extensionspioneer-online-news-2logsubmissioninterval) has 
 not passed it will not be uploaded. You should make sure this is always less
-than `extensions.pioneer-online-news-2.logSubmissionInterval`.
+than [`extensions.pioneer-online-news-2.logSubmissionInterval`](#extensionspioneer-online-news-2logsubmissioninterval).
 
 
 ### Installing the add-on
@@ -140,7 +139,7 @@ https://developer.mozilla.org/Firefox/Multiple_profiles
 Before beginning this test it is best to set the appropriate preference in your
 profile. 
 
-You can set `extensions.pioneer-online-news-2.updateTimerInterval` to something 
+You can set [`extensions.pioneer-online-news-2.updateTimerInterval`](#extensionspioneer-online-news-2updatetimerinterval) to something 
 small like once every minute `60000`. Which will cause the add-on to check for a 
 change in state every minute. The way that timers are created is different for 
 values under 10 minutes (`600000`). So it is recommended to do at least one test
@@ -155,7 +154,7 @@ Once these preference have been set install the add-on. You should see a survey
 doorhanger at the start of each phase that prompts you to take a survey.
 
 You may also wish to adjust the 
-`extensions.pioneer-online-news-2.showDoorhangerInterval` preference to test that
+[`extensions.pioneer-online-news-2.showDoorhangerInterval`](#extensionspioneer-online-news-2showdoorhangerinterval) preference to test that
 the survey doorhangers are re-shown to the user, at most 3 times per phase, at 
 the set interval.
 
@@ -194,7 +193,7 @@ look something like:
 #### Test the bias rating doorhanger
 
 You do not *need* to tweak any preferences before testing this feature, however 
-you may choose to reduce `extensions.pioneer-online-news-2.showDoorhangerInterval`
+you may choose to reduce [`extensions.pioneer-online-news-2.showDoorhangerInterval`](#extensionspioneer-online-news-2showdoorhangerinterval)
 to test that the doorhanger only gets shown once per interval. 
 
 After installing the add-on open the browser console from 
@@ -223,7 +222,7 @@ allow you to agree or disagree with the rating. Click either of these buttons
 or the close button (X) in the corner of the doorhanger will permanently dismiss
 the doorhanger for the given website. However, if you do not click any of the
 buttons the doorhanger will be shown when visiting the website again after the 
-interval specified in `extensions.pioneer-online-news-2.showDoorhangerInterval`.
+interval specified in [`extensions.pioneer-online-news-2.showDoorhangerInterval`](#extensionspioneer-online-news-2showdoorhangerinterval).
 
 #### Test that telemetry pings are being sent
 
@@ -244,7 +243,7 @@ contents of the ping.
 
 The log pings are batched and a submission is attempted 3 hours, however they 
 are only submitted once a day. You may change the 
-`extensions.pioneer-online-news-2.logSubmissionInterval`
+[`extensions.pioneer-online-news-2.logSubmissionInterval`](#extensionspioneer-online-news-2logsubmissioninterval)
 preference to less than 3 hours and it will submit the log every 3 hours. You
 will need to restart Firefox or set this pref before installing for this pref 
 change to take effect.
@@ -256,11 +255,11 @@ These pings should have the `schemaName` set to `online-news-log`.
 ##### Test that the survey doorhanger is not reshown after clicking through
 
 Before beginning this test you will probably want to set 
-`extensions.pioneer-online-news-2.logSubmissionInterval` to something smaller
+[`extensions.pioneer-online-news-2.logSubmissionInterval`](#extensionspioneer-online-news-2logsubmissioninterval) to something smaller
 so that the survey doorhanger is reshown quicker than 24 hours.
 
 You will also need to update the 
-`extensions.pioneer-online-news-2.updateTimerInterval` setting to less than
+[`extensions.pioneer-online-news-2.updateTimerInterval`](#extensionspioneer-online-news-2updatetimerinterval) setting to less than
 the setting above.
 
 The survey doorhanger should be shown a maximum of three times, unless you
