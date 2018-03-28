@@ -56,7 +56,7 @@ this.DwellTime = {
     const unixTs = Math.round(now / 1000);
     const branchName = Services.prefs.getCharPref(STUDY_BRANCH_PREF, "");
 
-    let obj = {
+    const obj = {
       url: this.focusedUrl,
       details: idle_tag,
       timestamp: unixTs,
