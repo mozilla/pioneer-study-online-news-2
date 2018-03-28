@@ -181,7 +181,7 @@ You can get the contents of the log by opening the browser console from
 code:
 
 ```js
-Cu.import("resource://pioneer-study-online-news/lib/LogStorage.jsm");
+Cu.import("resource://pioneer-study-online-news-2/lib/LogStorage.jsm");
 LogStorage.getAll().then(v => { console.log(v); });
 ```
 
@@ -208,7 +208,7 @@ After installing the addon open the browser console from
 `Tools > Web Developer > Browser Console` and run the following lines of code:
 
 ```js
-Cu.import("resource://pioneer-study-online-news/lib/Phases.jsm");
+Cu.import("resource://pioneer-study-online-news-2/lib/Phases.jsm");
 Phases.gotoNextPhase();
 ```
 
