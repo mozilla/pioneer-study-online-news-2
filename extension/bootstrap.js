@@ -25,6 +25,9 @@ XPCOMUtils.defineLazyModuleGetter(
   this, "Pioneer", "resource://pioneer-study-online-news-2/lib/Pioneer.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
+  this, "RecentWindow", "resource:///modules/RecentWindow.jsm"
+);
+XPCOMUtils.defineLazyModuleGetter(
   this, "Hosts", "resource://pioneer-study-online-news-2/lib/Hosts.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
@@ -88,7 +91,8 @@ this.Bootstrap = {
 
     // If the app is starting up, wait until the UI is available before finishing
     // init.
-    if (reason === REASONS.APP_STARTUP) {
+    const browserWindow = RecentWindow.getMostRecentBrowserWindow();
+    if (reason === REASONS.APP_STARTUP && !browserWindow) {
       Services.obs.addObserver(this, UI_AVAILABLE_NOTIFICATION);
     } else {
       this.finishStartup();
@@ -148,7 +152,7 @@ this.Bootstrap = {
     Cu.unload("resource://pioneer-study-online-news-2/lib/Panels.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/Hosts.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/BiasDoorhanger.jsm");
-    Cu.unload("resource://pioneer-study-online-news-2/lib/RankingDoorhanger.jsm");
+    Cu.unload("resource://pioneer-study-online-news-2/lib/WhoisDoorhanger.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/SurveyDoorhanger.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/SurveyWatcher.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/PrefUtils.jsm");

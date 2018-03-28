@@ -16,7 +16,7 @@ XPCOMUtils.defineLazyModuleGetter(
   this, "BiasDoorhanger", "resource://pioneer-study-online-news-2/lib/BiasDoorhanger.jsm"
 );
 XPCOMUtils.defineLazyModuleGetter(
-  this, "RankingDoorhanger", "resource://pioneer-study-online-news-2/lib/RankingDoorhanger.jsm"
+  this, "WhoisDoorhanger", "resource://pioneer-study-online-news-2/lib/WhoisDoorhanger.jsm"
 );
 
 const STUDY_BRANCH_PREF = "extensions.pioneer-online-news-2.studyBranch";
@@ -118,13 +118,14 @@ this.ActiveURIService = {
         Services.prefs.setCharPref(STUDY_BRANCH_PREF, branch.name);
       }
 
-      if (branch.showDoorhanger) {
+      const document = domWindow.window.document;
+      if (branch.showDoorhanger && document.getElementById("mainPopupSet")) {
         let doorhanger;
 
         if (branch.showDoorhanger === "bias") {
           doorhanger = new BiasDoorhanger(domWindow);
         } else {
-          doorhanger = new RankingDoorhanger(domWindow);
+          doorhanger = new WhoisDoorhanger(domWindow);
         }
 
         this.addObserver(doorhanger);
@@ -153,7 +154,7 @@ this.ActiveURIService = {
   untrackWindow(domWindow) {
     domWindow.removeEventListener("focus", this);
     domWindow.removeEventListener("blur", this);
-    if (domWindow.gBrowser) {
+    if (domWindow.gBrowser && domWindow.gBrowser.removeProgressListener) {
       domWindow.gBrowser.removeProgressListener(this);
     }
     this.trackedWindows.delete(domWindow);

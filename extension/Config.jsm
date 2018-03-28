@@ -27,7 +27,7 @@ const Config = {
   branches: [
     { name: "control", weight: 1 },
     { name: "treatment-bias", weight: 1, showDoorhanger: "bias" },
-    { name: "treatment-ranking", weight: 1, showDoorhanger: "ranking" },
+    { name: "treatment-whois", weight: 1, showDoorhanger: "whois" },
   ],
   telemetryEnv: Services.prefs.getCharPref(TELEMETRY_ENV_PREF, "prod"),
 
