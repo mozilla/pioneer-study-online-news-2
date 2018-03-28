@@ -1,7 +1,3 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-
 "use strict";
 
 let document;
@@ -33,32 +29,12 @@ function load() {
 }
 
 function update(data) {
-  const rating = data.rating;
-  const biasRating = document.getElementById("bias-rating");
+  const date = data.date;
+  const dateElem = document.getElementById("date");
+  dateElem.innerHTML = date;
 
   // Clears any text selected in the doorhanger (bug 1416204)
   content.getSelection().removeAllRanges();
-
-  /**
-   * The rating is -2.0 to 2.0 so we multiple by 10 and divide by 2
-   * and then round to get an integer value from -10 to 10.
-   */
-  const normalizedRating = Math.round(rating * 10 / 2);
-
-  for (const child of biasRating.children) {
-    child.setAttribute("class", "");
-  }
-
-  if (normalizedRating === 0) {
-    // Highlight the two boxes on either side of the center line
-    biasRating.children[10 - 1].setAttribute("class", "fill");
-    biasRating.children[10 + 1].setAttribute("class", "fill");
-  } else {
-    for (let i = 1; i <= Math.abs(normalizedRating); i++) {
-      const idx = rating > 0 ? 10 + i : 10 - i;
-      biasRating.children[idx].setAttribute("class", "fill");
-    }
-  }
 }
 
 function setupButtons() {

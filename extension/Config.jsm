@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 const { utils: Cu } = Components;
 Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
@@ -27,7 +31,7 @@ const Config = {
   branches: [
     { name: "control", weight: 1 },
     { name: "treatment-bias", weight: 1, showDoorhanger: "bias" },
-    { name: "treatment-ranking", weight: 1, showDoorhanger: "ranking" },
+    { name: "treatment-whois", weight: 1, showDoorhanger: "whois" },
   ],
   telemetryEnv: Services.prefs.getCharPref(TELEMETRY_ENV_PREF, "prod"),
 

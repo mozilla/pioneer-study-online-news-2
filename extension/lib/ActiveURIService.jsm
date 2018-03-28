@@ -7,11 +7,16 @@ Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
+  this, "Config", "resource://pioneer-study-online-news-2/Config.jsm"
+);
+XPCOMUtils.defineLazyModuleGetter(
+  this, "Pioneer", "resource://pioneer-study-online-news-2/lib/Pioneer.jsm"
+);
+XPCOMUtils.defineLazyModuleGetter(
   this, "BiasDoorhanger", "resource://pioneer-study-online-news-2/lib/BiasDoorhanger.jsm"
 );
-
 XPCOMUtils.defineLazyModuleGetter(
-  this, "RankingDoorhanger", "resource://pioneer-study-online-news-2/lib/RankingDoorhanger.jsm"
+  this, "WhoisDoorhanger", "resource://pioneer-study-online-news-2/lib/WhoisDoorhanger.jsm"
 );
 
 const STUDY_BRANCH_PREF = "extensions.pioneer-online-news-2.studyBranch";
@@ -113,15 +118,16 @@ this.ActiveURIService = {
         Services.prefs.setCharPref(STUDY_BRANCH_PREF, branch.name);
       }
 
-      let doorhanger;
+      const document = domWindow.window.document;
+      if (branch.showDoorhanger && document.getElementById("mainPopupSet")) {
+        let doorhanger;
 
-      if (branch.showDoorhanger === "bias") {
-        doorhanger = new BiasDoorhanger(domWindow);
-      } else {
-        doorhanger = new RankingDoorhanger(domWindow);
-      }
+        if (branch.showDoorhanger === "bias") {
+          doorhanger = new BiasDoorhanger(domWindow);
+        } else {
+          doorhanger = new WhoisDoorhanger(domWindow);
+        }
 
-      if (doorhanger) {
         this.addObserver(doorhanger);
       }
     }
@@ -148,7 +154,7 @@ this.ActiveURIService = {
   untrackWindow(domWindow) {
     domWindow.removeEventListener("focus", this);
     domWindow.removeEventListener("blur", this);
-    if (domWindow.gBrowser) {
+    if (domWindow.gBrowser && domWindow.gBrowser.removeProgressListener) {
       domWindow.gBrowser.removeProgressListener(this);
     }
     this.trackedWindows.delete(domWindow);

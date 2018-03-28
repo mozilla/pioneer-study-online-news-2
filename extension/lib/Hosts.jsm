@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 const { utils: Cu } = Components;
 Cu.importGlobalProperties(["fetch"]);
 
@@ -13,12 +17,12 @@ const Hosts = {
       this.trackedBiasHosts[d.domain] = d.avgAlign;
     });
 
-    const mozDomains = await fetch("resource://pioneer-study-online-news-2/ranking-domains.json");
-    domains = await mozDomains.json();
+    const whoisDomains = await fetch("resource://pioneer-study-online-news-2/whois-domains.json");
+    domains = await whoisDomains.json();
 
-    this.trackedMozHosts = {};
+    this.trackedWhoisHosts = {};
     domains.forEach(d => {
-      this.trackedMozHosts[d.domain] = d.mozRank;
+      this.trackedWhoisHosts[d.domain] = d.date;
     });
   },
 
@@ -36,13 +40,26 @@ const Hosts = {
     return this.trackedBiasHosts[hostname];
   },
 
-  isMozTrackedURI(uri) {
-    const hostname = this.getHostnameFromURI(uri);
-    return Object.keys(this.trackedMozHosts).includes(hostname);
+  getWhoisTrackedDomain(uri) {
+    let hostname = this.getHostnameFromURI(uri);
+
+    while (hostname.indexOf(".") > -1) {
+      if (Object.keys(this.trackedWhoisHosts).includes(hostname)) {
+        return hostname;
+      }
+      const parts = hostname.split(".");
+      hostname = parts.slice(1).join(".");
+    }
+
+    return null;
   },
 
-  getMozRatingForURI(uri) {
-    const hostname = this.getHostnameFromURI(uri);
-    return this.trackedMozHosts[hostname];
+  isWhoisTrackedURI(uri) {
+    return !!this.getWhoisTrackedDomain(uri);
+  },
+
+  getWhoisDateForURI(uri) {
+    const domain = this.getWhoisTrackedDomain(uri);
+    return this.trackedWhoisHosts[domain];
   }
 };

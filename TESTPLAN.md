@@ -2,7 +2,7 @@
 
 ## Overview
 
-This add-on runs a 3 week study that takes place in 3 phases that are each 1 
+This add-on runs a 3 week study that takes place in 3 phases that are each 1
 week long.
 
 At the start of the study we present the user with a survey.
@@ -17,9 +17,10 @@ each user is put into one of three buckets. They are either in:
 - a bias treatment group which receives a special doorhanger popup once a day 
   when they visit any of the 500 websites listed in `bias-domains.json`. This 
   doorhanger includes a visual indicator of the bias rating of the website. 
-- a ranking treatment group which receives a special doorhanger popup once 
+- a whois treatment group which receives a special doorhanger popup once 
   a day when they visit any of the websites listed in `ranking-domains.json`.
-  This doorhanger includes a visual indicator of the alex ranking of the website.
+  This doorhanger includes a visual indicator of the registration date of the
+  domain.
 
 During the last phase we return to simply logging user dwell time.
 
@@ -95,13 +96,13 @@ survey doorhanger. After this duration is over the add-on will be uninstalled.
 
 #### `extensions.pioneer-online-news-2.studyBranch`
 
-**Values:** `bias-treatment`, `ranking-treatment`, `control`
+**Values:** `treatment-bias`, `treatment-whois`, `control`
 
 This is set during the second phase of the study.
 
-The `bias-treatment` branch is where the bias rating doorhanger is shown.
+The `treatment-bias` branch is where the bias rating doorhanger is shown.
 
-The `ranking-treatment` branch is where the Alexa ranking doorhanger is shown.
+The `treatment-whois` branch is where the whois date doorhanger is shown.
 
 The `control` branch is where no doorhanger is shown.
 
@@ -186,11 +187,12 @@ look something like:
 {
   url: "http://www.website.com/something.html",
   details: "focus-start",
-  timestamp: 123456789
+  timestamp: 123456789,
+  branch: "treatment-bias"
 }
 ```
 
-#### Test the bias rating doorhanger
+#### Test the treatment doorhanger
 
 You do not *need* to tweak any preferences before testing this feature, however 
 you may choose to reduce [`extensions.pioneer-online-news-2.showDoorhangerInterval`](#extensionspioneer-online-news-2showdoorhangerinterval)
@@ -209,11 +211,11 @@ observe the doorhanger behaviour.
 
 There are three branches to this phase: 
 - the `control` branch where the doorhanger is not shown to the user. 
-- the `bias-treatment` branch where the bias doorhanger is shown to the user.
-- the `ranking-treatment` branch where the Alex ranking doorhanger is shown.
+- the `treatment-bias` branch where the bias doorhanger is shown to the user.
+- the `treatment-whois` branch where the whois doorhanger is shown.
 
 You can change this preference at any time to switch the branch that you are 
-testing. No restart should be necessary for the change to take effect.
+testing. A restart may be necessary for the change to take effect.
 
 You may now navigate to any of the websites listed in `bias-domains.json` and 
 depending on which branch you are in you should see a doorhanger with a bias

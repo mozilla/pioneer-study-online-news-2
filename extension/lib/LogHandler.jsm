@@ -32,7 +32,7 @@ let padding = 0.95;
 this.LogHandler = {
   startup() {
     this.uploadPings();
-    setInterval(this.uploadPings.bind(this), Config.logUploadAttemptInterval)
+    setInterval(this.uploadPings.bind(this), Config.logUploadAttemptInterval);
   },
 
   async uploadPings() {
@@ -60,7 +60,7 @@ this.LogHandler = {
         while (entries.length > 0) {
           const batchSize = Math.floor(originalEntriesLength * reduceRatio * padding);
           if (batchSize < 1) {
-            throw new Error('could not submit batch of any size');
+            throw new Error("could not submit batch of any size");
           }
 
           batch = entries.splice(0, batchSize);

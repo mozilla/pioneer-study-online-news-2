@@ -1,0 +1,21 @@
+{
+  // names of npm modules to load into htmllint
+  "plugins": [],
+
+  // remove "width" from `attr-bans` since it's currently used by inlined SVGs.
+  "attr-bans": [
+    "align",
+    "background",
+    "bgcolor",
+    "border",
+    "frameborder",
+    "longdesc",
+    "marginwidth",
+    "marginheight",
+    "scrolling",
+    "style"
+  ],
+  "attr-name-style": false,
+  "id-class-style": "dash",
+  "indent-width": 2
+}
