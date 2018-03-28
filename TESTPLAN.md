@@ -40,7 +40,7 @@ restart the browser for the change to take effect.
 
 ### Available preferences
 
-####`extensions.pioneer-online-news-2.telemetryEnv`
+#### `extensions.pioneer-online-news-2.telemetryEnv`
 
 **Values:** `stage`, `prod`
 
@@ -49,49 +49,49 @@ restart the browser for the change to take effect.
 If you have configured telemetry to submit to the stage environment you should
 set this to `stage` to ensure that the correct encryption key is used.
 
-####`extensions.pioneer-online-news-2.updateTimerInterval`
+#### `extensions.pioneer-online-news-2.updateTimerInterval`
 
 **Default:** `21600000`
 
 This sets the frequency in milliseconds that the state should be updated. It 
 defaults to six hours.
 
-####`extensions.pioneer-online-news-2.showDoorhangerInterval`
+#### `extensions.pioneer-online-news-2.showDoorhangerInterval`
 
 **Default:** `86400000`
 
 This sets the minimum time in milliseconds before the each doorhanger should be 
 reshown to a user. It defaults to one day.
 
-####`extensions.pioneer-online-news-2.logSubmissionInterval`
+#### `extensions.pioneer-online-news-2.logSubmissionInterval`
 
 **Default:** `10800000`
 
 This sets the minimum time in milliseconds before the log data is submitted to 
 Telemetry and then the log is purged. It defaults to three hours
 
-####`extensions.pioneer-online-news-2.preTreatmentDuration`
+#### `extensions.pioneer-online-news-2.preTreatmentDuration`
 
 **Default:** `604800000`
 
 This sets the duration of the first phase of the study. By default it is 1
 week long.
 
-####`extensions.pioneer-online-news-2.treatmentDuration`
+#### `extensions.pioneer-online-news-2.treatmentDuration`
 
 **Default:** `604800000`
 
 This sets the duration of the second phase of the study. By default it is 1
 week long.
 
-####`extensions.pioneer-online-news-2.postTreatmentDuration`
+#### `extensions.pioneer-online-news-2.postTreatmentDuration`
 
 **Default:** `604800000`
 
 This sets the duration of the third phase of the study. By default it is 1
 week long.
 
-####`extensions.pioneer-online-news-2.postStudyDuration`
+#### `extensions.pioneer-online-news-2.postStudyDuration`
 
 **Default:** `604800000`
 
@@ -99,7 +99,7 @@ This sets the duration after the study ends during which to show the final
 survey doorhanger. After this duration is over the addon will be uninstalled.
 By default it is 1 week long.
 
-####`extensions.pioneer-online-news-2.studyBranch`
+#### `extensions.pioneer-online-news-2.studyBranch`
 
 **Values:** `treatment-bias`, `treatment-whois`, `control`
 
@@ -111,7 +111,7 @@ The `treatment-whois` branch is where the whois date doorhanger is shown.
 
 The `control` branch is where no doorhanger is shown.
 
-####`extensions.pioneer-online-news-2.logUploadAttemptInterval`
+#### `extensions.pioneer-online-news-2.logUploadAttemptInterval`
 
 **Default:** `900000`
 
