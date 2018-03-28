@@ -64,7 +64,7 @@ class BiasDoorhanger {
     this.panelBrowser.messageManager.sendAsyncMessage("PioneerOnlineNews::update", {
       rating: Hosts.getBiasRatingForURI(this.focusedURI)
     });
-    this.panel.openPopup(anchor, "bottomleft topleft", 0, 0, false, false);
+    this.panel.openPopup(anchor, "bottomleft topleft", 16, -6, false, false);
   }
 
   hide() {

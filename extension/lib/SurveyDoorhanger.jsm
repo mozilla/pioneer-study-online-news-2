@@ -59,7 +59,7 @@ class SurveyDoorhanger {
       anchor = document.getElementById("PanelUI-menu-button"); // Hamburger menu button
     }
     this.panelBrowser.messageManager.sendAsyncMessage("PioneerOnlineNews::update");
-    this.panel.openPopup(anchor, "bottomcenter topright", 0, 0, false, false);
+    this.panel.openPopup(anchor, "bottomcenter topright", 0, -10, false, false);
   }
 
   hide() {
