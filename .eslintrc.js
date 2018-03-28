@@ -25,6 +25,7 @@ module.exports = {
     "no-global-assign": "warn",
     "no-implicit-globals": "off",
     "no-return-await": "warn",
+    "no-unsanitized/property": "warn",
     "no-var": "error",
     "no-warning-comments": "warn",
     "prefer-const": "error",

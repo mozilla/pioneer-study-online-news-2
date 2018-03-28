@@ -33,5 +33,8 @@
     "lint:css": "stylelint 'extension/**/*.css'",
     "lint:html": "htmllint 'extension/**/*.html'",
     "lint:js": "eslint . --ext=.js,.jsm,.json"
+  },
+  "dependencies": {
+    "escope": "^3.6.0"
   }
 }

@@ -30,7 +30,7 @@ this.SurveyWatcher = {
   },
 
   async onFocusURI(data) {
-    if(data.uri && this.uriMatchesSurveyURL(data.uri)) {
+    if (data.uri && this.uriMatchesSurveyURL(data.uri)) {
       this.endSurvey();
     }
   },

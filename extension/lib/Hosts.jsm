@@ -43,12 +43,12 @@ const Hosts = {
   getWhoisTrackedDomain(uri) {
     let hostname = this.getHostnameFromURI(uri);
 
-    while (hostname.indexOf('.') > -1) {
+    while (hostname.indexOf(".") > -1) {
       if (Object.keys(this.trackedWhoisHosts).includes(hostname)) {
         return hostname;
       }
-      const parts = hostname.split('.');
-      hostname = parts.slice(1).join('.');
+      const parts = hostname.split(".");
+      hostname = parts.slice(1).join(".");
     }
 
     return null;
