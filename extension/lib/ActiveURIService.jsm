@@ -87,6 +87,9 @@ this.ActiveURIService = {
     for (const domWindow of this.trackedWindows) {
       this.untrackWindow(domWindow);
     }
+
+    // Clean up the observers
+    this.observers.clear();
   },
 
   addObserver(observer) {

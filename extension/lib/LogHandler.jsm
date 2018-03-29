@@ -27,12 +27,19 @@ const UPLOAD_DATE_PREF = "extensions.pioneer-online-news-2.lastLogUploadDate";
 const UPLOAD_LIMIT = 400000;
 
 let padding = 0.95;
+let interval;
 
 
 this.LogHandler = {
   startup() {
     this.uploadPings();
-    setInterval(this.uploadPings.bind(this), Config.logUploadAttemptInterval);
+    interval = setInterval(this.uploadPings.bind(this), Config.logUploadAttemptInterval);
+  },
+
+  shutdown() {
+    if (interval) {
+      clearInterval(interval);
+    }
   },
 
   async uploadPings() {

@@ -5,7 +5,6 @@
 const { utils: Cu } = Components;
 Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
-Cu.import("resource://gre/modules/Timer.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(
   this, "Config", "resource://pioneer-study-online-news-2/Config.jsm"

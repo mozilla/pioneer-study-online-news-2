@@ -138,6 +138,7 @@ this.Bootstrap = {
     Phases.shutdown();
     NewsIndexedDB.shutdown();
     Panels.shutdown();
+    LogHandler.shutdown();
 
     Cu.unload("resource://pioneer-study-online-news-2/Config.jsm");
     Cu.unload("resource://pioneer-study-online-news-2/lib/Pioneer.jsm");
