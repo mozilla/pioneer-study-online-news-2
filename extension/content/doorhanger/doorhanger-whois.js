@@ -31,7 +31,7 @@ function load() {
 function update(data) {
   const date = data.date;
   const dateElem = document.getElementById("date");
-  dateElem.innerHTML = date;
+  dateElem.textContent = date;
 
   // Clears any text selected in the doorhanger (bug 1416204)
   content.getSelection().removeAllRanges();
