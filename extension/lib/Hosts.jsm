@@ -46,7 +46,7 @@ const Hosts = {
   },
 
   isBiasTrackedURI(uri) {
-    return !!getBiasTrackedHostname(uri);
+    return !!this.getBiasTrackedHostname(uri);
   },
 
   getBiasRatingForURI(uri) {
