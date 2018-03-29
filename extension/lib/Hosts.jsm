@@ -27,16 +27,30 @@ const Hosts = {
   },
 
   getHostnameFromURI(uri) {
-    return uri ? uri.host : null;
+    let host = uri ? uri.host : null;
+    if (host) {
+      host = host.replace(/^www\./, "");
+    }
+    return host;
+  },
+
+  getBiasTrackedHostname(uri) {
+    let hostname = this.getHostnameFromURI(uri);
+    const trackedHosts = Object.keys(this.trackedBiasHosts);
+    if (trackedHosts.includes(hostname)) {
+      return hostname;
+    } else if (trackedHosts.includes(`www.${hostname}`)) {
+      return `www.${hostname}`;
+    }
+    return null;
   },
 
   isBiasTrackedURI(uri) {
-    const hostname = this.getHostnameFromURI(uri);
-    return Object.keys(this.trackedBiasHosts).includes(hostname);
+    return !!getBiasTrackedHostname(uri);
   },
 
   getBiasRatingForURI(uri) {
-    const hostname = this.getHostnameFromURI(uri);
+    const hostname = this.getBiasTrackedHostname(uri);
     return this.trackedBiasHosts[hostname];
   },
 
