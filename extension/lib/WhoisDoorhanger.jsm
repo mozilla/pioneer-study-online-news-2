@@ -82,18 +82,22 @@ class WhoisDoorhanger {
     browser.selectedTab = browser.addTab(LEARN_MORE_URL);
     this.hide();
 
+    this.logInteraction("learn-more");
+
     // Unset the last shown timestamp so that the doorhanger shows again
     // when returning to the original tab.
     await DoorhangerStorage.unsetStats(hostname);
   }
 
   logInteraction(details) {
+    const branchName = Services.prefs.getCharPref(STUDY_BRANCH_PREF, "");
     const entry = {
       url: this.focusedURI.spec,
       timestamp: Math.round(Date.now() / 1000),
+      branch: branchName,
       details,
     };
-    Pioneer.utils.submitEncryptedPing("online-news-log", 1, {entries: [entry]});
+    Pioneer.utils.submitEncryptedPing("online-news-log", 2, {entries: [entry]});
   }
 
   onDismiss() {

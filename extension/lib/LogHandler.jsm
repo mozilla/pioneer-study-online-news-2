@@ -51,7 +51,7 @@ this.LogHandler = {
     if (timesinceLastUpload > Config.logSubmissionInterval) {
       let payload = { entries };
       const entriesPingSize = await Pioneer.utils.getEncryptedPingSize(
-        "online-news-log", 1, payload
+        "online-news-log", 2, payload
       );
 
       if (entriesPingSize < UPLOAD_LIMIT) {
@@ -73,7 +73,7 @@ this.LogHandler = {
           batch = entries.splice(0, batchSize);
           payload = { entries: batch };
           const batchPingSize = await Pioneer.utils.getEncryptedPingSize(
-            "online-news-log", 1, payload
+            "online-news-log", 2, payload
           );
 
           if (batchPingSize >= UPLOAD_LIMIT) {
