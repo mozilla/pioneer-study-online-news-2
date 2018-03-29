@@ -37,7 +37,9 @@ const NewsIndexedDB = {
   },
 
   shutdown() {
-    this.db.close();
+    if (this.db) {
+      this.db.close();
+    }
   },
 
   getStore(name) {

@@ -81,7 +81,11 @@ this.ActiveURIService = {
   },
 
   shutdown() {
-    Services.obs.removeObserver(this, "xul-window-registered");
+    try {
+      Services.obs.removeObserver(this, "xul-window-registered");
+    } catch (err) {
+      // It must already be removed!
+    }
 
     // Clean up tracked windows
     for (const domWindow of this.trackedWindows) {
